@@ -64,3 +64,9 @@ Access keywords are added with classes or any blocks or definitions that define 
 | Different package non-subclass | NO      |  NO     |  NO       | YES    |
 
 ---
+
+## Non Access Modifiers
+
+- First of all we have static modifier. That we mostly use with class or methods.
+- Then we have final modifier that we can use to make our variables or class or methods finalize.
+- The abstract modifier that we us to make our class or methods abstract.
