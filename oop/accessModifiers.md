@@ -55,11 +55,11 @@ Access keywords are added with classes or any blocks or definitions that define 
     ```
 **NOTE :** An outer class in JAVA cannot be private or protected.
 
-|                                | default | private | protected | public |
+|                                | private | default | protected | public |
 |:--                             |:-:      |:-:      |:-:        |:-:     |
 | Same class                     | YES     |  YES    |  YES      | YES    |
-| Same package subclass          | YES     |  NO     |  YES      | YES    |
-| Same package non-subclass      | YES     |  NO     |  YES      | YES    |
+| Same package subclass          | NO      |  YES    |  YES      | YES    |
+| Same package non-subclass      | NO      |  YES    |  YES      | YES    |
 | Different package subclass     | NO      |  NO     |  YES      | YES    |
 | Different package non-subclass | NO      |  NO     |  NO       | YES    |
 
