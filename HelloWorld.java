@@ -1,3 +1,4 @@
+// Note: At the time of writing this code the name of the directory was Java 
 package Java; // this is the name of directory in which our code is (some more information in TakingInput.java file)
 public class HelloWorld 
 {

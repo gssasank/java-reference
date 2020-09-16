@@ -1,3 +1,4 @@
+// Note: At the time of writing this code the name of the directory was Java 
 package Java;
 // since we have created our own package i.e. the name of the directory so if we want to run this code we will need to run
 // the code from its parent directory after compiling, by executing java Java.TakingInput, or if we want to run the code from current directory
