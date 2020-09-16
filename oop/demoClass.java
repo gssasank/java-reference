@@ -1,4 +1,5 @@
-public class oop1{
+// Access modifier of this class is public
+public class demoClass{
     public static void main(String[] args)
     {
         // Creating objects
@@ -22,17 +23,21 @@ public class oop1{
     }
 }
 
+// T
 class Cat{
     // Istance variable : states of cat
+    // We generally don't initialize the instance variables here instead we use constructor to do that.
     String name;
     int age;
     String color;
     String breed;
-    
+    static int no_of_cats; // class variable
+
     // Instance methods : behaviour of Cat
     void sleep()
     {
-        System.out.println("Sleeping");
+        String sleeping = "Sleeping"; // local variable
+        System.out.println(sleeping);
     }
 
     void play()
