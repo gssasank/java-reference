@@ -24,7 +24,6 @@ public class demoClass{
     }
 }
 
-// T
 class Cat{
     // Istance variable : states of cat
     // We generally don't initialize the instance variables here instead we use constructor to do that.
