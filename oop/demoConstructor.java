@@ -5,7 +5,7 @@ public class demoConstructor {
     private String name;
     private int rollno;
     private String branch;
-    boolean isStudent;
+    private boolean isStudent;
 
     /* 
     * A Constructor initialize the object when it is created.
@@ -28,9 +28,12 @@ public class demoConstructor {
 
     // parametrized constructor: constructor overloading
     // Constructor2
-    demoConstructor(String name, int rollno, String branch){
+    demoConstructor(String name, int rn, String branch){
+        // if we are using variables name of the method same as the instance variables of the class,
+        // then we use 'this' keyword to refer to the current object
         this.name = name;
-        this.rollno = rollno;
+        // if the name of variable is not same as the instance variables then we don't need 'this' keyword
+        rollno = rn;
         this.branch = branch;
         isStudent = true;
     }
