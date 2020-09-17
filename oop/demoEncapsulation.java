@@ -55,6 +55,7 @@ class Anime{
     }
 }
 public class demoEncapsulation {
+    // we make our main function static so that the JVM can call it with creating its instance
     public static void main(String[] args){
         Anime a1 = new Anime();
         a1.setName("Attack on Titan");
