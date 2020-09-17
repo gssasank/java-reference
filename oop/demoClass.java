@@ -1,3 +1,4 @@
+package oop;
 // Access modifier of this class is public
 public class demoClass{
     public static void main(String[] args)
