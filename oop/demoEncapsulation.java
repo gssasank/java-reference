@@ -9,7 +9,7 @@ package oop;
 
 class Anime{
     private String name;
-    private double rating;
+    private float rating;
     // Use constructor if you think initialization is mandatory before you can use the object. 
     //Use setter method when initialization of variable is non-mandatory to use the object.
     /*
@@ -28,7 +28,7 @@ class Anime{
     public void setName(String name){
         this.name = name;
     }
-    public void setRating(double r){
+    public void setRating(float r){
         rating = r;
     }
 
@@ -36,7 +36,7 @@ class Anime{
     public String getName(){
         return name;
     }
-    public double getRating(){
+    public float getRating(){
         return rating;
     }
 
@@ -57,8 +57,8 @@ public class demoEncapsulation {
     // we make our main function static so that the JVM can call it with creating its instance
     public static void main(String[] args){
         Anime a1 = new Anime();
-        a1.setName("Attack on Titan");
-        a1.setRating(9.8);
+        a1.setName("Attack on Titan"); 
+        a1.setRating(9.8f); // in Java a decimal no is considered as double unless specified
         System.out.println(a1.getName());
         System.out.println(a1.getRating());
         a1.greeting(); 
