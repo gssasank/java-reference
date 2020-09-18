@@ -4,3 +4,4 @@
 - [Reference vs Object vs Instance](https://github.com/yadav-aman/java-reference/blob/master/oop/demoRvOvI.java)
 - [Encapsulation](https://github.com/yadav-aman/java-reference/blob/master/oop/demoEncapsulation.java)
 - [final Keyword](https://github.com/yadav-aman/java-reference/blob/master/oop/finalKeyword.java)
+- [Inheritance (single Inheritance)](https://github.com/yadav-aman/java-reference/blob/master/oop/demoInheritance.java)
