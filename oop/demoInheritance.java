@@ -37,6 +37,10 @@ class Animal{
         name = "Name of animal";
         color = "Color of animal";
     }
+    Animal(String name, String color){
+        this.name = name;
+        this.color = color;
+    }
     void printName(){
         System.out.println("Name = "+name);
     }
@@ -47,6 +51,16 @@ class Animal{
 
 // Single Inheritance
 class Dog extends Animal{
+    Dog(){
+        // this will call constructor of parent class by default
+        // java automatically adds the statement given in comment below 
+        // super();
+        // for more info read constructorChaining.java
+    }
+    Dog(String name,String color){
+        // we can call constructor of parent class by 'super' keyword. Read thisVSsuper.java for more info
+        super(name,color);
+    }
     void eat(){
         System.out.println("Dog is eating");
     }
@@ -59,5 +73,10 @@ public class demoInheritance {
         System.out.println(d1.color);
         d1.eat();
         // System.out.println((d1.name)); // this wont work as the name is private
+
+        System.out.println("---------------------");
+        Dog d2 = new Dog("Oscar","Black");
+        d2.printName();
+        d2.printColor();
     }
 }
