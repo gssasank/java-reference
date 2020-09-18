@@ -51,7 +51,6 @@ class Anime{
     // nested static classes
     static class manga {
         // some code
-        }
     }
 }
 public class demoEncapsulation {
