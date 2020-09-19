@@ -1,0 +1,7 @@
+hey i am aman yadav
+this is test file to remove 
+single line comments
+from a file
+// this is comment
+this is not a comment
+// another comment

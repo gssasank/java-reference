@@ -1,0 +1,4 @@
+ is a programming language and computing platform first released by Sun Microsystems in 1995.
+There are lots of applications and websites that will not work unless you have  installed, and more are created every day.
+ is fast, secure, and reliable.
+From laptops to datacenters, game consoles to scientific supercomputers, cell phones to the Internet,  is everywhere! 
