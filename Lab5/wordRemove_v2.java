@@ -3,22 +3,24 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-// java .\wordRemove_v1.java test-wordRemove1.txt Java
-public class wordRemove_v1 {
+//  java .\wordRemove_v2.java test-wordRemove2.txt Java
+public class wordRemove_v2 {
     public static void main(String[] args){
         try{
             String file_name = args[0];
             String string = args[1];
+            String result="";
             try{
                 File file = new File(file_name);
                 Scanner scan = new Scanner(file);
-                PrintWriter output = new PrintWriter("m-"+file_name);
-
                 while (scan.hasNext()){
                     String line = scan.nextLine();
                     line = line.replaceAll(string,"****");
-                    output.println(line);
+                    result+=line+"\n";
                 }
+
+                PrintWriter output = new PrintWriter(file_name);
+                output.println(result);
 
                 scan.close();
                 output.close();
