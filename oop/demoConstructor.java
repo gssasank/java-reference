@@ -12,11 +12,11 @@ public class demoConstructor {
     * It has same name as the class and syntactically similar to a method.
     * Constructor has no explicit return type.
     * We use constructors to give initial values to the instance variables defined by a class 
-    * If we dont make a constructor the default constructor will be called i.e. 
+    * If we dont make a constructor the default constructor will be added implicitly by java i.e. 
         demoConstructor(){
-
         }
-        this will set all the variables to their default values i.e 0 for int, null for strings, false for boolean
+        this will set all the variables to their default values i.e 0 for int, null for strings, false for boolean and '\u0000' for char.
+        As methods of a class does not have a default constructor so Java won't assign a default value to a local varibale inside a method.
     */
     // Constructor1
     demoConstructor(){
