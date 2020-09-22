@@ -9,3 +9,5 @@
 - [Constructor Chaining](https://github.com/yadav-aman/java-reference/blob/master/opp/constructorChaining.java)
 - [Multilevel Inheritance](https://github.com/yadav-aman/java-reference/blob/master/opp/demoInheritance2.java)
 - [Hierarchical Inheritance](https://github.com/yadav-aman/java-reference/blob/master/opp/demoInheritance3.java)
+- [Complie Time Polymorphism](https://github.com/yadav-aman/java-reference/blob/master/opp/demoPolymorphism.java)
+- [Runtime Polymorphism](https://github.com/yadav-aman/java-reference/blob/master/opp/demoPolymorphism2.java)
