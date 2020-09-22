@@ -17,15 +17,17 @@ public class demoRvOvI{
         /* 
         * Creating reference of demoConstructor
         * The reference variables contains the address of the memory location in the heap
-        * In this case s1 is not pointing to any memory location as we have not created an object of class demoConstructor i.e. no memory is assigned to s1
+        * In this case s1 is not pointing to any memory location as we have not created 
+          an object of class demoConstructor i.e. no memory is assigned to s1
         */
         demoConstructor s1; 
 
-        // to create an object we use 'new' operator
-        // 'new' is used to create a new instance or a copy of the book demoConstructor
-        // here s2 is an instance of object demoConstructor
-        // Here 'new demoConstructor()' is assigning variables of demoConstructor in the memory and will return the address of that chunk of memory.
-        // The address returned by by new operator will be stored in s2 
+        // * to create an object we use 'new' operator
+        //  'new' is used to create a new instance or a copy of the book demoConstructor
+        // * here s2 is an instance of object demoConstructor
+        // * Here 'new demoConstructor()' is assigning variables of demoConstructor in the memory 
+        //   and will return the address of that chunk of memory.
+        // * The address returned by by new operator will be stored in s2 
         demoConstructor s2 = new demoConstructor();  
         System.out.println(s2.getName());
     }
