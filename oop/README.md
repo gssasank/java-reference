@@ -8,3 +8,4 @@
 - [this Vs Super Keyword](https://github.com/yadav-aman/java-reference/blob/master/opp/thisVSsuper.java)
 - [Constructor Chaining](https://github.com/yadav-aman/java-reference/blob/master/opp/constructorChaining.java)
 - [Multilevel Inheritance](https://github.com/yadav-aman/java-reference/blob/master/opp/demoInheritance2.java)
+- [Hierarchical Inheritance](https://github.com/yadav-aman/java-reference/blob/master/opp/demoInheritance3.java)
