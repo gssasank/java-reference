@@ -10,7 +10,7 @@ package oop;
     * Super Class/Parent Class: Superclass is the class from where a subclass inherits the features. It is also called a base class or a parent class.
 
     Important points in inheritance-
-    * A class can have one and only one direct superclass/parent class.
+    * A class can have one and only one direct superclass/parent class i.e. A parent class can have multiple child classes but a child does not have multiple parent class in Java.
     * A subclass inherits all the members but as constructors are not members, so they are not inherited by subclass,
       but we can invoke the constructor of the superclass with the help of subclass.
     * A subclass does not inherit the private members of its parent class.
@@ -27,6 +27,7 @@ package oop;
               ↗ C
             P -> C     
               ↘ C
+    * Java does not support Multiple and Hybrid inheritance but it can be achieved by the concept of Interfaces
     */   
 
 
