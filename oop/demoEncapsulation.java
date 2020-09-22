@@ -8,20 +8,10 @@ package oop;
 // (1) The fields of class can be made read-only or write-only; (2) A class can have total control over what is stored in its fields
 
 class Anime{
+    // Use constructor if you think initialization is mandatory before you can use the object. 
+    // Use setter method when initialization of variable is non-mandatory to use the object.
     private String name;
     private float rating;
-    // Use constructor if you think initialization is mandatory before you can use the object. 
-    //Use setter method when initialization of variable is non-mandatory to use the object.
-    /*
-    * Static keyword:
-        (1) Mainly used for memory management.
-        (2)  It can be used with variables, methods, blocks and nested classes. 
-        (3) It is a keyword which is used to share the same variable or method of a given class.
-        Basically, static is used for a constant variable or a method that is same for every instance of a class.
-    * Advantages
-        (1) Allocate memory only once in a class area at the time of class loading
-        (2) Make our program memory efficient e.g. Original Language of anime is same for all anime so we can make it static
-    */
     public static String language;
     
     // Setter methods: write only
@@ -62,9 +52,9 @@ public class demoEncapsulation {
         System.out.println(a1.getName());
         System.out.println(a1.getRating());
         a1.greeting(); 
-        // Using the above statement will give us some sort of warning that
+        // Using the above statement will give us some sort of warning like
         // The static method greeting() from the type Anime should be accessed in a static way
-        // so best coding practice is to call the static methods by class name
+        // so best coding practice is to call the static methods by class name i.e.
         Anime.greeting();
         System.out.println(Anime.language);
     }

@@ -2,6 +2,7 @@
 - [Access modifiers](https://github.com/yadav-aman/java-reference/blob/master/oop/accessModifiers.md)
 - [Constructors](https://github.com/yadav-aman/java-reference/blob/master/oop/demoConstructor.java)
 - [Reference vs Object vs Instance](https://github.com/yadav-aman/java-reference/blob/master/oop/demoRvOvI.java)
+- [static Keyword](https://github.com/yadav-aman/java-reference/blob/master/oop/staticKeyword.java)
 - [Encapsulation & static Keyword](https://github.com/yadav-aman/java-reference/blob/master/oop/demoEncapsulation.java)
 - [final Keyword](https://github.com/yadav-aman/java-reference/blob/master/oop/finalKeyword.java)
 - [Inheritance (single Inheritance)](https://github.com/yadav-aman/java-reference/blob/master/oop/demoInheritance.java)
