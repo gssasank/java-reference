@@ -15,5 +15,6 @@
 
 Running these code directly in an IDE won't create any problem, 
 but running these codes in the terminal without compling them may create some problems as many of the files
-have multiple classes in them, you can reffer to this [link](https://stackoverflow.com/questions/55794907/cant-find-mainstring-method-in-class-tapedeck-the-main-method-is-in-the-o) for more details.
+have multiple classes in them, you can reffer to this [link](https://stackoverflow.com/questions/55794907/cant-find-mainstring-method-in-class-tapedeck-the-main-method-is-in-the-o) 
+and this [link](https://www.programmingsimplified.com/java/source-code/java-program-multiple-classes) for more details.
 If you face this problem in VS code then press **ctrl+shift+p** and execute **Java: Clean the java language server workspace**.
