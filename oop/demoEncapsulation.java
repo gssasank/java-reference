@@ -4,7 +4,7 @@ package oop;
 // or the restricting of direct access to some of an object's components.
 // Encapsulation can be achieved by: 
 // (1) By Making member variables private; (2) By creating getters and setters methods public
-// Benifits of encapsulation: 
+// Benefits of encapsulation:
 // (1) The fields of class can be made read-only or write-only; (2) A class can have total control over what is stored in its fields
 
 class Anime{
@@ -12,7 +12,7 @@ class Anime{
     // Use setter method when initialization of variable is non-mandatory to use the object.
     private String name;
     private float rating;
-    // Original Language of anime is same for all anime so we can make it static for better memory mangement
+    // Original Language of anime is same for all anime so we can make it static for better memory management
     public static String language;
     
     // Setter methods: write only

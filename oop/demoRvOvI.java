@@ -3,7 +3,7 @@ package oop;
 public class demoRvOvI{
     public static void main(String[] args){
         // we will be using demoConstructor class in this program.
-        // we can acess the methods of demoConstructor directly as the class is public,
+        // we can access the methods of demoConstructor directly as the class is public,
         // also this class and demoConstructor class is in same package i.e oop
         
         /*

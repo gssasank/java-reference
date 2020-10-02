@@ -5,7 +5,7 @@ package oop;
     Polymorphism means many forms.
 
     There are 2 types of polymorphism in Java:
-    * Static Polymorphism aka Complie time polymorphism - 
+    * Static Polymorphism aka Compile time polymorphism -
         This type of polymorphism is achieved by function/method overloading or operator overloading (only '+' operator is supported).
         Method Overloading: When there are multiple functions with same name but different parameters then these functions are said to be overloaded.
         

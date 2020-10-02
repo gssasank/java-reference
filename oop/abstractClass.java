@@ -11,7 +11,7 @@ package oop;
     * Abstract classes can have final methods (methods that cannot be overridden)
 
     Rules for java Abstract classes:
-    1) If a class has atleast one abstract method, then the class must be delared abstract.
+    1) If a class has atleast one abstract method, then the class must be declared abstract.
     2) Abstract classes can have abstract and non-abstract methods (method with the body).
        An abstract method doesn’t have implementation (no method body and ends up with a semi colon).
        Private methods shouldn’t be marked as private as Private methods are not polymorphic (you cannot inherit them),
@@ -119,7 +119,7 @@ public class abstractClass {
 Is it possible to create abstract and final class in Java?
   No, When a class is declared final,it cannot be extended or subclassed.
   If any attempt is made to do so will result in compilation error .
-  An abstract class can never be instantiated.Its main mission is to be sub-classesd.
+  An abstract class can never be instantiated. Its main mission is to be sub-classed.
   If even a single method is abstract, the whole class must be declared abstract.
   However you can have non-abstract methods in abstract class.
   You cannot create an object out of abstract classes, which will result in compilation error,

@@ -25,7 +25,7 @@ public class demoClass{
 }
 
 class Cat{
-    // Istance variable : states of cat
+    // Instance variable : states of cat
     // We generally don't initialize the instance variables here instead we use constructor to do that.
     String name;
     int age;

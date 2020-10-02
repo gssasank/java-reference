@@ -24,7 +24,7 @@ package oop;
 
 public class staticKeyword{
     public static void main(String[] args){
-        // calling info() without creating any objectof class DemoStaticKeywordClass
+        // calling info() without creating any object of class DemoStaticKeywordClass
         DemoStaticKeywordClass.info();
 
         // accessing of class DemoStaticKeywordClass directly
@@ -37,7 +37,7 @@ public class staticKeyword{
         // In order to create instance of inner class we need an Outer class instance. 
         // Let us create Outer class instance for creating non-static nested class.
         // DemoStaticKeywordClass.NestedNonStaticClass obj2 = new DemoStaticKeywordClass.NestedNonStaticClass();
-        // compliation error: an enclosing instance that contains DemoStaticKeywordClass.NestedNonStaticClass is required
+        // compilation error: an enclosing instance that contains DemoStaticKeywordClass.NestedNonStaticClass is required
         DemoStaticKeywordClass obj2 = new DemoStaticKeywordClass();
         DemoStaticKeywordClass.NestedNonStaticClass objInner = obj2.new NestedNonStaticClass();
         objInner.m4();
@@ -82,7 +82,7 @@ class DemoStaticKeywordClass{
             System.out.println(a); // can access 'a' as 'a' is a static
 
             // Cannot make a static reference to the non-static field b
-            // System.out.println(b); // complilation error
+            // System.out.println(b); // compilation error
         }
     }
 
