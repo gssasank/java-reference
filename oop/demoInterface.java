@@ -66,6 +66,8 @@ interface SideKick extends Player{
 }
 
 class PlayerSidekick implements SideKick{
+    // try this
+	// int playerHealth = 200; 
 	@Override
 	public void move(){
         System.out.println("Sidekick Moving");
