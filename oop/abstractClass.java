@@ -8,12 +8,14 @@ package oop;
     * It is used to implement Abstraction.
     * A class which is declared with the 'abstract' keyword is known as an abstract class in Java. 
     * abstract and final or static can never be together.
+    * Abstract classes can have final methods (methods that cannot be overridden)
 
     Rules for java Abstract classes:
     1) If a class has atleast one abstract method, then the class must be delared abstract.
     2) Abstract classes can have abstract and non-abstract methods (method with the body).
        An abstract method doesn’t have implementation (no method body and ends up with a semi colon).
-       It shouldn’t be marked as private.
+       Private methods shouldn’t be marked as private as Private methods are not polymorphic (you cannot inherit them),
+        so it makes no sense to make a private method abstract.
     3) Abstract classes cannot be instantiated i.e. we can't create the objects of the class.
     4) It can have constructors, static and final 'methods'.
     5) To use an abstract class, you have to inherit it from another class.
