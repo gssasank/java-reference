@@ -8,6 +8,11 @@ package oop;
     * Static Polymorphism aka Compile time polymorphism -
         This type of polymorphism is achieved by function/method overloading or operator overloading (only '+' operator is supported).
         Method Overloading: When there are multiple functions with same name but different parameters then these functions are said to be overloaded.
+            It can be achieved by changing:
+             1) The number of parameters in two methods.
+             2)  The data types of the parameters of methods.
+             3)  The Order of the parameters of methods.
+
         
     * Dynamic Polymorphism aka runtime polymorphism -
         This type of polymorphism is achieved by Method Overriding i.e. when a sub class class has a definition for one of the 
