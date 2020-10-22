@@ -36,28 +36,27 @@ public class TestCompartment{
         Compartment[] c1 = new Compartment[10];
         Random rand = new Random();
         for (int i=0;i<10;i++){
+            // generates random number from 0 to 3
             int choice = rand.nextInt(4);
             System.out.print(i+": ");
 
             if (choice == 0){
                 c1[i] = new FirstClass();
-                c1[i].notice();
             }
  
             if (choice == 1){
                 c1[i] = new Ladies();
-                c1[i].notice();
             }
  
             if (choice == 2){
                 c1[i] = new General();
-                c1[i].notice();
             }
  
             if (choice == 3){
                 c1[i] = new Luggage();
-                c1[i].notice();
             } 
+
+            c1[i].notice();
         } 
     }
 }
