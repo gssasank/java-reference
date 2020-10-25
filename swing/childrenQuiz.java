@@ -11,6 +11,7 @@ public class childrenQuiz {
         {
             int questionDriver = rand.nextInt(1000);
             questionDriver = questionDriver % 3;
+            // generates random int from 0-19
             no1 = rand.nextInt(20);
             no2 = rand.nextInt(20);
             switch(questionDriver)
