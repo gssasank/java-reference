@@ -15,8 +15,7 @@
 - [Runtime Polymorphism](https://github.com/yadav-aman/java-reference/blob/master/opp/demoPolymorphism2.java)
 - [Abstraction - Abstract Class](https://github.com/yadav-aman/java-reference/blob/master/opp/abstractClass.java)
 - [Abstraction - Interface](https://github.com/yadav-aman/java-reference/blob/master/opp/demoInterface.java)
-- [Comparable Interface](https://github.com/yadav-aman/java-reference/blob/master/opp/comparableInterface.java)
-
+- [Comparable and Comparator Interfaces](https://github.com/yadav-aman/java-reference/blob/master/opp/CAndCInterfaces.java)
 ---
 ## Naming Convention for classes and methods
 Start the name of classes and interfaces with capital letters and long name should use **CamelCasing**.

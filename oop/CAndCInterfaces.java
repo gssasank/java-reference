@@ -1,6 +1,7 @@
 package oop;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 /* 
     Java Comparable interface is used to order the objects of the user-defined class.
     This interface is found in java.lang package and contains only one method named compareTo(Object).
@@ -54,7 +55,21 @@ class Dept implements Comparable<Dept>{
     // but for explanation I've used the extended form
     }
 }
-public class comparableInterface {
+
+/*
+We know that we can order and then sort the objects of the user-defined class using comparable interface,
+but what if we are working on a predefined library which does not implement the comparable interface and want to sort that?
+in that case we can't change the source code of the library
+Or maybe it may happen that we need to sort the elements based in some other or multiple parameters.
+So in these cases we use comparator Interface.
+ */
+class StreamCompare implements Comparator<Dept>{
+    public int compare(Dept d1,Dept d2){
+        return d1.getName().compareTo(d2.getName());
+    }
+}
+
+public class CAndCInterfaces {
     public static void main(String[] args){
         Dept cse = new Dept("CSE",2017);
         Dept ece = new Dept("ECE",2019);
@@ -69,8 +84,8 @@ public class comparableInterface {
         list.add(new Dept("CSE",2017));
         list.add(new Dept("BMS",2020));
         list.add(new Dept("MEC",2016));
-
-        System.out.println("before sorting");
+ 
+        System.out.println("before sorting (year wise)");
         for(Dept x : list){
             System.out.println(x);
         }
@@ -81,6 +96,25 @@ public class comparableInterface {
         Collections.sort(list);
 
         System.out.println("After sorting");
+        for(Dept x : list){
+            System.out.println(x);
+        }
+        
+        // Sorting using comparator
+        // since comparator are generic type so we need to specify the parameter e.g. <Dept>
+        Comparator<Dept> sc = new StreamCompare();
+        Collections.sort(list,sc);
+
+        // we can also use anonymous class to define the logic of comparator
+        // Comparator<Dept> sc = new Comparator<Dept>()
+        // {
+        //  public int compare(Dept d1, Dept d2){
+        //      return d1.getName().compareTo(d2.getName());
+        //  }
+        // };
+        // Collections.sort(list,sc);
+
+        System.out.println("After sorting (Alphabetically)");
         for(Dept x : list){
             System.out.println(x);
         }
