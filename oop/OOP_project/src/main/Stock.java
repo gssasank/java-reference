@@ -1,4 +1,4 @@
-package src;
+package main;
 
 public class Stock{
     private String scrip;
@@ -36,5 +36,9 @@ public class Stock{
     }
     public double getClosePrice() {
         return closePrice;
+    }
+    @Override
+    public String toString(){
+        return "Scrip: " + scrip + ", Sector: " + sector + ", OpenPrice: " + openPrice + ", HighPrice: " + highPrice + ", LowPrice: " + lowPrice + ", ClosePrice: " + closePrice;
     }
 }
