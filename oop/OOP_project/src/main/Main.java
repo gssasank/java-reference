@@ -3,6 +3,7 @@ package main;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -17,6 +18,9 @@ public class Main{
 
             try {
                 Scanner scan = new Scanner(file);
+                // creating objects of Stock Exchange
+                StockExchange nse = new StockExchange("NSE");
+                StockExchange bse = new StockExchange("BSE");
                 while (scan.hasNext()) {
                     String line = scan.nextLine();
 
@@ -31,18 +35,31 @@ public class Main{
                             // adding data stock data
                             if (command.split(" ")[1].equals("scrip"))
                             {
-                                Stock s1 = new Stock(params);
-                                System.out.println(s1);
+                                Stock stock = new Stock(params);
+                                // randomly allocate stock to NSE or BSE
+                                Random rand = new Random();
+                                // randomly generate 0 or 1
+                                int choice = rand.nextInt(2);
+                                if(choice == 0){
+                                    nse.setStock(stock);
+//                                    nse.getDetails();
+                                }
+                                else{
+                                    bse.setStock(stock);
+//                                    bse.getDetails();
+                                }
+//                                System.out.println(stock);
                             }
                         }
                     }
                 }
+//                nse.querySector("IT");
+//                bse.querySector("IT");
             }
             catch (FileNotFoundException e){
                 System.out.println("File not found");
                 exit(1);
             }
         }
-
     }
 }
