@@ -63,7 +63,11 @@ public class Main{
                         // dealing with add user command
                         else if(command.equals("Add user")){
                             Trader user = new Trader(params);
-                            yadavBroking.addCostumer(user);
+                            yadavBroking.addClient(user);
+                        }
+                        // deleting user
+                        else if(command.equals("Delete User")){
+                            yadavBroking.deleteClient(params[1]);
                         }
                         // dealing with show sector command
                         else if (command.equals("Show sector")){

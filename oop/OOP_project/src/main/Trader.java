@@ -22,4 +22,8 @@ public class Trader{
             }
         }
     }
+    // getters
+    public String getName() {
+        return name;
+    }
 }
