@@ -21,6 +21,9 @@ public class Main{
                 // creating objects of Stock Exchange
                 StockExchange nse = new StockExchange("NSE");
                 StockExchange bse = new StockExchange("BSE");
+                // creating object of the Brokerage Firm
+                BrokerageFirm yadavBroking = new BrokerageFirm();
+
                 while (scan.hasNext()) {
                     String line = scan.nextLine();
 
@@ -49,9 +52,10 @@ public class Main{
                             }
 //                            System.out.println(stock);
                         }
-//                        else if(command.equals("Add user")){
-//                            Trader user = new Trader(params);
-//                        }
+                        else if(command.equals("Add user")){
+                            Trader user = new Trader(params);
+                            yadavBroking.addCostumer(user);
+                        }
                         // dealing with show sector command
                         else if (command.equals("Show sector")){
                             nse.querySector(params[1]);
