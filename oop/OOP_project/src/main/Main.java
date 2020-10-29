@@ -34,6 +34,9 @@ public class Main{
                     if(!command.equals("")){
                         // extracting parameters from the line using regular expressions
                         String[] params = DataExtract.paramsRegex(line);
+                        // sample params: {"scrip","M&M","sector","auto","O","610","H","610","L","610","C","610"}
+                        // sample params: {"user","Mimi","funds","1000","INFY","10","TCS","5","SBI","20"}
+
                         // Dealing with Add scrip command
                         if(command.equals("Add scrip")){
                             // adding data stock data
@@ -52,6 +55,12 @@ public class Main{
                             }
 //                            System.out.println(stock);
                         }
+                        // dealing with delete scrip command
+                        else if(command.equals("Delete scrip")){
+                            nse.stockDeList(params[1]);
+                            bse.stockDeList(params[1]);
+                        }
+                        // dealing with add user command
                         else if(command.equals("Add user")){
                             Trader user = new Trader(params);
                             yadavBroking.addCostumer(user);

@@ -35,4 +35,8 @@ public class StockExchange{
             }
         }
     }
+    // method to delete a stock from the market
+    public void stockDeList(String stockName){
+        stocks.removeIf(stock -> stock.getScrip().equals(stockName));
+    }
 }
