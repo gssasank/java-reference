@@ -15,7 +15,7 @@ public class StockExchange{
 
     // Class Methods
     // add stock in the list of stocks
-    public void setStock(Stock stock){
+    public void addStock(Stock stock){
         this.stocks.add(stock);
     }
     // get details of all the stocks in a specific Stock Exchange

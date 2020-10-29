@@ -43,11 +43,11 @@ public class Main{
                             // randomly generate 0 or 1
                             int choice = rand.nextInt(2);
                             if(choice == 0){
-                                nse.setStock(stock);
+                                nse.addStock(stock);
 //                               nse.getDetails();
                             }
                             else{
-                                bse.setStock(stock);
+                                bse.addStock(stock);
 //                                bse.getDetails();
                             }
 //                            System.out.println(stock);

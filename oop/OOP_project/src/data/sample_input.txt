@@ -37,6 +37,8 @@ Execute
 
 Show sector: Pharma
 
+Show sector: IT
+
 Delete scrip: TCS
 
 Delete User: Jaydeep
