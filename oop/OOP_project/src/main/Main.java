@@ -47,13 +47,15 @@ public class Main{
                             int choice = rand.nextInt(2);
                             if(choice == 0){
                                 nse.addStock(stock);
-//                               nse.getDetails();
+                                //nse.getDetails();
                             }
                             else{
                                 bse.addStock(stock);
-//                                bse.getDetails();
+                                //bse.getDetails();
                             }
-//                            System.out.println(stock);
+                            //nse.queryPrice(stock.getScrip());
+                            //bse.queryPrice(stock.getScrip());
+                            //System.out.println(stock);
                         }
                         // dealing with delete scrip command
                         else if(command.equals("Delete scrip")){

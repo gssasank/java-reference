@@ -25,6 +25,14 @@ public class StockExchange{
             System.out.println(s.getScrip()+", "+s.getSector());
         }
     }
+    // method to query the price of a stock
+    public void queryPrice(String stockName){
+        for(Stock s: stocks){
+            if (s.getScrip().equals(stockName)){
+                System.out.println(s);
+            }
+        }
+    }
     // method to query stock by sector name
     public void querySector(String query){
         // blank string to store results
