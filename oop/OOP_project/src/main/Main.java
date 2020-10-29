@@ -49,10 +49,13 @@ public class Main{
                             }
 //                            System.out.println(stock);
                         }
+//                        else if(command.equals("Add user")){
+//                            Trader user = new Trader(params);
+//                        }
                         // dealing with show sector command
                         else if (command.equals("Show sector")){
-                            nse.querySector(params[0]);
-                            bse.querySector(params[0]);
+                            nse.querySector(params[1]);
+                            bse.querySector(params[1]);
                         }
                     }
                 }

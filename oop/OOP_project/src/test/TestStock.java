@@ -19,6 +19,7 @@ public class TestStock {
         while (matcher.find()) {
             System.out.print(matcher.group(1)+" | ");
             System.out.println(matcher.group(3));
+            info.append(matcher.group(1)).append(',');
             info.append(matcher.group(3)).append(',');
         }
         String[] params = info.toString().split(",");

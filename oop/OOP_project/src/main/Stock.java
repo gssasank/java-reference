@@ -10,18 +10,20 @@ public class Stock{
 
     // Constructor
     public Stock(String[] params){
-        // first element in params array is ticket name
-        this.scrip = params[0];
-        // second element is the sector of the stock
-        this.sector = params[1];
-        // third element is the open price of the stock
-        this.openPrice = Double.parseDouble(params[2]);
-        // fourth element is the high price
-        this.highPrice = Double.parseDouble(params[3]);
-        // fifth element is the low price
-        this.lowPrice = Double.parseDouble(params[4]);
+        // sample params: {"scrip","M&M","sector","auto","O","610","H","610","L","610","C","610"}
+
+        // second element in params array is ticket name
+        this.scrip = params[1];
+        // fourth element is the sector of the stock
+        this.sector = params[3];
+        // sixth element is the open price of the stock
+        this.openPrice = Double.parseDouble(params[5]);
+        // eighth element is the high price
+        this.highPrice = Double.parseDouble(params[7]);
+        // tenth element is the low price
+        this.lowPrice = Double.parseDouble(params[9]);
         // last element is the close price 
-        this.closePrice = Double.parseDouble(params[5]);
+        this.closePrice = Double.parseDouble(params[11]);
 //        System.out.println("Created Stock: "+scrip);
     }
 

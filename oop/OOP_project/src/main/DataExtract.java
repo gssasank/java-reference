@@ -7,12 +7,14 @@ public class DataExtract {
     public static String[] paramsRegex(String line){
         // extracting data with the help of regex
         // regex pattern
-        String regexPattern = "(\\w+):( |)([\\w&]+)";
+        String regexPattern = "([\\w&]+):( |)([\\w&]+)";
         Pattern pattern = Pattern.compile(regexPattern);
         Matcher matcher = pattern.matcher(line);
         // store result in a string
         StringBuilder info = new StringBuilder();
         while (matcher.find()) {
+            // group 1 is the word before ':' e.g in scrip: INFY, scrip is the first group
+            info.append(matcher.group(1)).append(',');
             // group 3 is the group after ':' e.g. in scrip: INFY, INFY is the third group
             info.append(matcher.group(3)).append(',');
         }
