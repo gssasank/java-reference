@@ -25,36 +25,37 @@ public class Main{
                     String line = scan.nextLine();
 
                     // Extracting the command to execute from the line
-                    String command = line.split(":|,")[0];
+                    String command = line.split("[:,]")[0];
 
                     // ignoring empty lines
                     if(!command.equals("")){
-                        // Dealing with Add commands
-                        if(command.equals("Add scrip") || command.equals("Add user")){
-                            String[] params = DataExtract.addRegex(line);
+                        // extracting parameters from the line using regular expressions
+                        String[] params = DataExtract.paramsRegex(line);
+                        // Dealing with Add scrip command
+                        if(command.equals("Add scrip")){
                             // adding data stock data
-                            if (command.split(" ")[1].equals("scrip"))
-                            {
-                                Stock stock = new Stock(params);
-                                // randomly allocate stock to NSE or BSE
-                                Random rand = new Random();
-                                // randomly generate 0 or 1
-                                int choice = rand.nextInt(2);
-                                if(choice == 0){
-                                    nse.setStock(stock);
-//                                    nse.getDetails();
-                                }
-                                else{
-                                    bse.setStock(stock);
-//                                    bse.getDetails();
-                                }
-//                                System.out.println(stock);
+                            Stock stock = new Stock(params);
+                            // randomly allocate stock to NSE or BSE
+                            Random rand = new Random();
+                            // randomly generate 0 or 1
+                            int choice = rand.nextInt(2);
+                            if(choice == 0){
+                                nse.setStock(stock);
+//                               nse.getDetails();
                             }
+                            else{
+                                bse.setStock(stock);
+//                                bse.getDetails();
+                            }
+//                            System.out.println(stock);
+                        }
+                        // dealing with show sector command
+                        else if (command.equals("Show sector")){
+                            nse.querySector(params[0]);
+                            bse.querySector(params[0]);
                         }
                     }
                 }
-//                nse.querySector("IT");
-//                bse.querySector("IT");
             }
             catch (FileNotFoundException e){
                 System.out.println("File not found");

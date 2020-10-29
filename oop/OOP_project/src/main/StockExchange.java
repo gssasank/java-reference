@@ -25,12 +25,13 @@ public class StockExchange{
             System.out.println(s.getScrip()+", "+s.getSector());
         }
     }
+    // method to query stock by sector name
     public void querySector(String query){
-        System.out.println(query + " Stocks in " + stockExchangeName + ":");
+        System.out.print("\n" + query + " Stocks in " + stockExchangeName + ": ");
         for(Stock s: stocks){
             String sector = s.getSector();
             if (sector.equals(query)){
-                System.out.println(s.getScrip());
+                System.out.print(s.getScrip()+", ");
             }
         }
     }
