@@ -74,6 +74,11 @@ public class Main{
                             nse.querySector(params[1]);
                             bse.querySector(params[1]);
                         }
+                        // exiting the program
+                        else if (command.equals("Exit")){
+                            System.out.println("Thanks for using the system!");
+                            exit(0);
+                        }
                     }
                 }
             }

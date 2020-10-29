@@ -27,13 +27,15 @@ public class StockExchange{
     }
     // method to query stock by sector name
     public void querySector(String query){
-        System.out.print("\n" + query + " Stocks in " + stockExchangeName + ": ");
+        // blank string to store results
+        StringBuilder s1 = new StringBuilder();
         for(Stock s: stocks){
             String sector = s.getSector();
             if (sector.equals(query)){
-                System.out.print(s.getScrip()+", ");
+                s1.append(s.getScrip()).append(", ");
             }
         }
+        System.out.println(query + " Stocks in " + stockExchangeName + ": " + s1.toString());
     }
     // method to delete a stock from the market
     public void stockDeList(String stockName){
