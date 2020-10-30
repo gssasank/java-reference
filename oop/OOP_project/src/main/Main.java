@@ -48,6 +48,7 @@ public class Main{
                             // randomly generate 0 or 1
                             int choice = rand.nextInt(2);
                             if(choice == 0){
+                                // params[1] is the name of the stock
                                 nse.addStock(params[1],stockData);
                             }
                             else{
@@ -60,10 +61,11 @@ public class Main{
                         // dealing with delete scrip command
                         else if(command.equals("Delete scrip")){
                             // remove stock from stock exchanges
-//                            nse.stockDeList(params[1]);
-//                            bse.stockDeList(params[1]);
+                            // params[1] is the name of the stock
+                            nse.stockDeList(params[1]);
+                            bse.stockDeList(params[1]);
                             // remove stock from broking firm costumer's profile
-                            yadavBroking.deleteUserStock(params[1]);
+//                            yadavBroking.deleteUserStock(params[1]);
                         }
                         // dealing with add user command
                         else if(command.equals("Add user")){

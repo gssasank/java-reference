@@ -36,8 +36,8 @@ public class StockExchange{
         }
         System.out.println(query + " Stocks in " + stockExchangeName + ": " + s1.toString());
     }
-//    // method to delete a stock from the market
-//    public void stockDeList(String stockName){
-//        stockData.removeIf(stockData -> stockData.getScrip().equals(stockName));
-//    }
+    // method to delete a stock from the market
+    public void stockDeList(String stockName){
+        stocks.remove(stockName);
+    }
 }
