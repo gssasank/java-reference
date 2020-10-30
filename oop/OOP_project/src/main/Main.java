@@ -65,7 +65,7 @@ public class Main{
                             nse.stockDeList(params[1]);
                             bse.stockDeList(params[1]);
                             // remove stock from broking firm costumer's profile
-//                            yadavBroking.deleteUserStock(params[1]);
+                            yadavBroking.deleteUserStock(params[1]);
                         }
                         // dealing with add user command
                         else if(command.equals("Add user")){
