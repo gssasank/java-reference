@@ -3,12 +3,15 @@ package main;
 import java.util.Hashtable;
 
 public class Trader{
+    private int costumerID = 0;
     private final String name;
     private double funds;
     private Hashtable<String, Double> holding = new Hashtable<String, Double>();
+    private static int counter = 0;
     // Constructor
     public Trader(String[] params){
         // sample params: {"user","Mimi","funds","1000","INFY","10","TCS","5","SBI","20"}
+        this.costumerID = counter++;
         // second element in params array is the name
         this.name = params[1];
         // fourth element in params array is the funds
@@ -25,5 +28,8 @@ public class Trader{
     // getters
     public String getName() {
         return name;
+    }
+    public Hashtable<String, Double> getHolding() {
+        return holding;
     }
 }

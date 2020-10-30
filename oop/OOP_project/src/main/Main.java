@@ -59,8 +59,11 @@ public class Main{
                         }
                         // dealing with delete scrip command
                         else if(command.equals("Delete scrip")){
+                            // remove stock from stock exchanges
                             nse.stockDeList(params[1]);
                             bse.stockDeList(params[1]);
+                            // remove stock from broking firm costumer's profile
+                            yadavBroking.deleteUserStock(params[1]);
                         }
                         // dealing with add user command
                         else if(command.equals("Add user")){
