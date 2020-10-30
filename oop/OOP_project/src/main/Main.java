@@ -42,17 +42,17 @@ public class Main{
                         // Dealing with Add scrip command
                         if(command.equals("Add scrip")){
                             // adding data stock data
-                            Stock stock = new Stock(params);
+                            StockData stockData = new StockData(params);
                             // randomly allocate stock to NSE or BSE
                             Random rand = new Random();
                             // randomly generate 0 or 1
                             int choice = rand.nextInt(2);
                             if(choice == 0){
-                                nse.addStock(stock);
+                                nse.addStock(params[1],stockData);
                                 //nse.getDetails();
                             }
                             else{
-                                bse.addStock(stock);
+                                bse.addStock(params[1],stockData);
                                 //bse.getDetails();
                             }
                             //nse.queryPrice(stock.getScrip());
@@ -62,8 +62,8 @@ public class Main{
                         // dealing with delete scrip command
                         else if(command.equals("Delete scrip")){
                             // remove stock from stock exchanges
-                            nse.stockDeList(params[1]);
-                            bse.stockDeList(params[1]);
+//                            nse.stockDeList(params[1]);
+//                            bse.stockDeList(params[1]);
                             // remove stock from broking firm costumer's profile
                             yadavBroking.deleteUserStock(params[1]);
                         }
@@ -78,8 +78,8 @@ public class Main{
                         }
                         // dealing with show sector command
                         else if (command.equals("Show sector")){
-                            nse.querySector(params[1]);
-                            bse.querySector(params[1]);
+//                            nse.querySector(params[1]);
+//                            bse.querySector(params[1]);
                         }
                         // placing orders
                         else if (command.equals("Place order")){

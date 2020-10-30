@@ -6,7 +6,6 @@ import java.util.Comparator;
 public class OrderBook {
     private ArrayList<Order> buyOrders = new ArrayList<>();
     private ArrayList<Order> sellOrders = new ArrayList<>();
-    // TODO sort orders
     // TODO throw exception on upper circuit and lower circuit
 
     // add order to order book

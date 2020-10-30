@@ -1,7 +1,6 @@
 package main;
 
-public class Stock{
-    private final String scrip;
+public class StockData {
     private final String sector;
     private final double openPrice;
     private final double highPrice;
@@ -11,11 +10,9 @@ public class Stock{
     private final double lowerCircuit;
 
     // Constructor
-    public Stock(String[] params){
+    public StockData(String[] params){
         // sample params: {"scrip","M&M","sector","auto","O","610","H","610","L","610","C","610"}
 
-        // second element in params array is ticket name
-        this.scrip = params[1];
         // fourth element is the sector of the stock
         this.sector = params[3];
         // sixth element is the open price of the stock
@@ -29,13 +26,9 @@ public class Stock{
         // calculating upper circuit
         this.upperCircuit = this.closePrice + (this.closePrice/10.0);
         this.lowerCircuit = this.closePrice - (this.closePrice/10.0);
-//        System.out.println("Created Stock: "+scrip);
     }
 
     // Getters
-    public String getScrip() {
-        return scrip;
-    }
     public String getSector() {
         return sector;
     }
@@ -52,8 +45,8 @@ public class Stock{
         return closePrice;
     }
 
-    @Override
-    public String toString(){
-        return "Scrip: " + scrip + ", Sector: " + sector + ", OpenPrice: " + openPrice + ", HighPrice: " + highPrice + ", LowPrice: " + lowPrice + ", ClosePrice: " + closePrice;
-    }
+//    @Override
+//    public String toString(){
+//        return "Scrip: " + scrip + ", Sector: " + sector + ", OpenPrice: " + openPrice + ", HighPrice: " + highPrice + ", LowPrice: " + lowPrice + ", ClosePrice: " + closePrice;
+//    }
 }
