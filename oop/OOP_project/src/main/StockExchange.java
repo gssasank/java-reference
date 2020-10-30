@@ -1,13 +1,10 @@
 package main;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.List;
 
 public class StockExchange{
     private final String stockExchangeName;
     // list to store stocks
-//    private List<StockData> stockData = new ArrayList<>();
     Hashtable<String,StockData> stocks = new Hashtable<>();
     // Constructor
     public StockExchange(String stockExchangeName){
@@ -26,18 +23,19 @@ public class StockExchange{
             System.out.println("Scrip: " + stockName + ", " + tmp);
         }
     }
-//    // method to query stock by sector name
-//    public void querySector(String query){
-//        // blank string to store results
-//        StringBuilder s1 = new StringBuilder();
-//        for(StockData s: stockData){
-//            String sector = s.getSector();
-//            if (sector.equals(query)){
-//                s1.append(s.getScrip()).append(", ");
-//            }
-//        }
-//        System.out.println(query + " Stocks in " + stockExchangeName + ": " + s1.toString());
-//    }
+    // method to query stock by sector name
+    public void querySector(String query){
+        // blank string to store results
+        StringBuilder s1 = new StringBuilder();
+        for(String stockName: stocks.keySet()){
+            StockData stock = stocks.get(stockName);
+            String sector = stock.getSector();
+            if (sector.equals(query)){
+                s1.append(stockName).append(", ");
+            }
+        }
+        System.out.println(query + " Stocks in " + stockExchangeName + ": " + s1.toString());
+    }
 //    // method to delete a stock from the market
 //    public void stockDeList(String stockName){
 //        stockData.removeIf(stockData -> stockData.getScrip().equals(stockName));

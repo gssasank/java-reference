@@ -76,8 +76,8 @@ public class Main{
                         }
                         // dealing with show sector command
                         else if (command.equals("Show sector")){
-//                            nse.querySector(params[1]);
-//                            bse.querySector(params[1]);
+                            nse.querySector(params[1]);
+                            bse.querySector(params[1]);
                         }
                         // placing orders
                         else if (command.equals("Place order")){
