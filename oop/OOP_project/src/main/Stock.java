@@ -7,6 +7,8 @@ public class Stock{
     private final double highPrice;
     private final double lowPrice;
     private final double closePrice;
+    private final double upperCircuit;
+    private final double lowerCircuit;
 
     // Constructor
     public Stock(String[] params){
@@ -24,6 +26,9 @@ public class Stock{
         this.lowPrice = Double.parseDouble(params[9]);
         // last element is the close price 
         this.closePrice = Double.parseDouble(params[11]);
+        // calculating upper circuit
+        this.upperCircuit = this.closePrice + (this.closePrice/10.0);
+        this.lowerCircuit = this.closePrice - (this.closePrice/10.0);
 //        System.out.println("Created Stock: "+scrip);
     }
 
