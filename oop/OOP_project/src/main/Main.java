@@ -41,22 +41,18 @@ public class Main{
 
                         // Dealing with Add scrip command
                         if(command.equals("Add scrip")){
-                            // adding data stock data
-                            StockData stockData = new StockData(params);
                             // randomly allocate stock to NSE or BSE
                             Random rand = new Random();
                             // randomly generate 0 or 1
                             int choice = rand.nextInt(2);
                             if(choice == 0){
-                                // params[1] is the name of the stock
-                                nse.addStock(params[1],stockData);
+                                nse.addStock(params);
                             }
                             else{
-                                bse.addStock(params[1],stockData);
+                                bse.addStock(params);
                             }
 //                            nse.queryPrice(params[1]);
 //                            bse.queryPrice(params[1]);
-                            //System.out.println(stock);
                         }
                         // dealing with delete scrip command
                         else if(command.equals("Delete scrip")){
@@ -69,15 +65,17 @@ public class Main{
                         }
                         // dealing with add user command
                         else if(command.equals("Add user")){
-                            Trader user = new Trader(params);
-                            yadavBroking.addClient(user);
+                            yadavBroking.addClient(new Trader(params));
                         }
                         // deleting user
                         else if(command.equals("Delete User")){
+                            // params[1] is the name of the user
                             yadavBroking.deleteClient(params[1]);
                         }
                         // dealing with show sector command
                         else if (command.equals("Show sector")){
+                            System.out.println("----- " + params[1] + " STOCKS -----");
+                            // params[1] is the name of the sector
                             nse.querySector(params[1]);
                             bse.querySector(params[1]);
                         }
@@ -87,6 +85,7 @@ public class Main{
                         }
                         // showing order book
                         else if (command.equals("Show Orderbook")){
+                            System.out.println("----- ORDERBOOK -----");
                             orders.showOrderBook();
                         }
                         // exiting the program

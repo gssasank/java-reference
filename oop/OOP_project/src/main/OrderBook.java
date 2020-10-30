@@ -12,7 +12,7 @@ public class OrderBook {
     public void addOrder(Order o){
         if (o.getType().equals("buy")){
             buyOrders.add(o);
-            // sort buy orders in descending order
+            // sort buy orders in descending order of bid price
             Comparator<Order> sortBuy = new Comparator<>() {
                 @Override
                 public int compare(Order o1, Order o2) {
@@ -27,7 +27,7 @@ public class OrderBook {
         }
         else{
             sellOrders.add(o);
-            // sorting sell orders in ascending order
+            // sorting sell orders in ascending order of ask price
             Comparator<Order> sortSell = new Comparator<>() {
                 @Override
                 public int compare(Order o1, Order o2) {
@@ -43,12 +43,12 @@ public class OrderBook {
     }
     // search for open orders of a specific person
     public void queryOrders(String userName){
-        System.out.println("Buy Orders:");
+        System.out.println("-: Buy Orders :-");
         for(Order o: buyOrders){
             if(o.getName().equals(userName))
                 System.out.println(o);
         }
-        System.out.println("Sell Orders:");
+        System.out.println("-: Sell Orders :-");
         for (Order o: sellOrders){
             if(o.getName().equals(userName))
                 System.out.println(o);
@@ -56,11 +56,11 @@ public class OrderBook {
     }
     // see order book
     public void showOrderBook() {
-        System.out.println("Buy Orders:");
+        System.out.println("-: Buy Orders :-");
         for(Order o: buyOrders){
             System.out.println(o);
         }
-        System.out.println("Sell Orders:");
+        System.out.println("-: Sell Orders :-");
         for (Order o: sellOrders){
             System.out.println(o);
         }

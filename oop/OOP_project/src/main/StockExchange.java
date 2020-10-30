@@ -13,8 +13,10 @@ public class StockExchange{
 
     // Class Methods
     // add stock in the list of stocks
-    public void addStock(String scrip, StockData stockdata){
-        stocks.put(scrip,stockdata);
+    public void addStock(String[] params){
+        // sample params: {"scrip","M&M","sector","auto","O","610","H","610","L","610","C","610"}
+        // params[1] is the name of the stock
+        stocks.put(params[1],new StockData(params));
     }
     // method to query the price of a stock
     public void queryPrice(String stockName){
