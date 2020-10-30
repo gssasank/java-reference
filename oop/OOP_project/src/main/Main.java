@@ -23,8 +23,8 @@ public class Main{
                 StockExchange bse = new StockExchange("BSE");
                 // creating object of the Brokerage Firm
                 BrokerageFirm yadavBroking = new BrokerageFirm();
-                // creating orderbook
-                Orderbook orders = new Orderbook();
+                // creating order book
+                OrderBook orders = new OrderBook();
 
                 while (scan.hasNext()) {
                     String line = scan.nextLine();
@@ -83,8 +83,11 @@ public class Main{
                         }
                         // placing orders
                         else if (command.equals("Place order")){
-                            Order o = new Order(params);
-                            orders.addOrder(o);
+                            orders.addOrder(new Order(params));
+                        }
+                        // showing order book
+                        else if (command.equals("Show Orderbook")){
+                            orders.showOrderBook();
                         }
                         // exiting the program
                         else if (command.equals("Exit")){

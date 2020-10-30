@@ -3,7 +3,7 @@ package main;
 import java.util.Hashtable;
 
 public class Trader{
-    private int costumerID = 0;
+    private int costumerID;
     private final String name;
     private double funds;
     private Hashtable<String, Double> holding = new Hashtable<String, Double>();
@@ -28,6 +28,9 @@ public class Trader{
     // getters
     public String getName() {
         return name;
+    }
+    public double getFunds() {
+        return funds;
     }
     public Hashtable<String, Double> getHolding() {
         return holding;

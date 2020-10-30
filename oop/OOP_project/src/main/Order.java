@@ -9,7 +9,7 @@ public class Order {
     // constructor
     public Order(String[] params){
         // sample params: {"user","Jaydeep","type","buy","scrip","INFY","qty","10","rate","790"}
-        // second elemet is name
+        // second element is name
         this.name = params[1];
         // fourth element is type
         this.type = params[3];
@@ -27,6 +27,9 @@ public class Order {
     }
     public String getType() {
         return type;
+    }
+    public double getRate() {
+        return rate;
     }
 
     @Override
