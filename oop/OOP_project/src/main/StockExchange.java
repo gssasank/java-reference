@@ -19,21 +19,13 @@ public class StockExchange{
     public void addStock(String scrip, StockData stockdata){
         stocks.put(scrip,stockdata);
     }
-//    // get details of all the stocks in a specific Stock Exchange
-//    public void getDetails(){
-//        System.out.print("Stock Exchange: " + stockExchangeName + ", Stock: ");
-//        for (StockData s: stockData){
-//            System.out.println(s.getScrip()+", "+s.getSector());
-//        }
-//    }
-//    // method to query the price of a stock
-//    public void queryPrice(String stockName){
-//        for(StockData s: stockData){
-//            if (s.getScrip().equals(stockName)){
-//                System.out.println(s);
-//            }
-//        }
-//    }
+    // method to query the price of a stock
+    public void queryPrice(String stockName){
+        StockData tmp = stocks.get(stockName);
+        if (tmp != null){
+            System.out.println("Scrip: " + stockName + ", " + tmp);
+        }
+    }
 //    // method to query stock by sector name
 //    public void querySector(String query){
 //        // blank string to store results

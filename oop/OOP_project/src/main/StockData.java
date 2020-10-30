@@ -45,8 +45,8 @@ public class StockData {
         return closePrice;
     }
 
-//    @Override
-//    public String toString(){
-//        return "Scrip: " + scrip + ", Sector: " + sector + ", OpenPrice: " + openPrice + ", HighPrice: " + highPrice + ", LowPrice: " + lowPrice + ", ClosePrice: " + closePrice;
-//    }
+    @Override
+    public String toString(){
+        return "Sector: " + sector + ", OpenPrice: " + openPrice + ", HighPrice: " + highPrice + ", LowPrice: " + lowPrice + ", ClosePrice: " + closePrice;
+    }
 }

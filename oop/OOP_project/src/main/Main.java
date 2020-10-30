@@ -49,14 +49,12 @@ public class Main{
                             int choice = rand.nextInt(2);
                             if(choice == 0){
                                 nse.addStock(params[1],stockData);
-                                //nse.getDetails();
                             }
                             else{
                                 bse.addStock(params[1],stockData);
-                                //bse.getDetails();
                             }
-                            //nse.queryPrice(stock.getScrip());
-                            //bse.queryPrice(stock.getScrip());
+//                            nse.queryPrice(params[1]);
+//                            bse.queryPrice(params[1]);
                             //System.out.println(stock);
                         }
                         // dealing with delete scrip command
