@@ -32,17 +32,11 @@ public class StockData {
     public String getSector() {
         return sector;
     }
-    public double getOpenPrice() {
-        return openPrice;
+    public double getUpperCircuit() {
+        return upperCircuit;
     }
-    public double getHighPrice() {
-        return highPrice;
-    }
-    public double getLowPrice() {
-        return lowPrice;
-    }
-    public double getClosePrice() {
-        return closePrice;
+    public double getLowerCircuit() {
+        return lowerCircuit;
     }
 
     @Override

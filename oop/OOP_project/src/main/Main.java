@@ -81,11 +81,24 @@ public class Main{
                         }
                         // placing orders
                         else if (command.equals("Place order")){
-                            orders.addOrder(new Order(params));
+                            // check if user exists
+                            // params[1] is tha name of the user
+                            Trader t = yadavBroking.getUser(params[1]);
+
+                            // check if stock exists
+                            // param[5] is the name of stock
+                            // check stock in NSE
+                            StockData s = nse.getStock(params[5]);
+                            // if stock not present in nse search BSE
+                            if (s == null)
+                                s = bse.getStock(params[5]);
+                            // if user and stock exists then place order
+                            if(t != null && s != null)
+                                orders.addOrder(new Order(params,t,s));
                         }
                         // showing order book
                         else if (command.equals("Show Orderbook")){
-                            System.out.println("----- ORDERBOOK -----");
+                            System.out.println("----- ORDER BOOK -----");
                             orders.showOrderBook();
                         }
                         // exiting the program

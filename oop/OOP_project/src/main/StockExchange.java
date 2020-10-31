@@ -42,4 +42,8 @@ public class StockExchange{
     public void stockDeList(String stockName){
         stocks.remove(stockName);
     }
+    // method to return the reference of stock by its ticket
+    public StockData getStock(String scrip){
+        return stocks.get(scrip);
+    }
 }

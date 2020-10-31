@@ -10,7 +10,14 @@ public class OrderBook {
 
     // add order to order book
     public void addOrder(Order o){
+        // check upper circuit and lower circuit TODO Raise an exception
+        if (o.getRate() < o.getStockData().getLowerCircuit() || o.getRate() > o.getStockData().getUpperCircuit())
+            return;
         if (o.getType().equals("buy")){
+            // check funds of the trader before buying
+            // funds must be more than the amount of order
+            if (o.getTrader().getFunds() < o.getRate() * o.getQty())
+                return;
             buyOrders.add(o);
             // sort buy orders in descending order of bid price
             Comparator<Order> sortBuy = new Comparator<>() {
@@ -26,6 +33,10 @@ public class OrderBook {
             buyOrders.sort(sortBuy);
         }
         else{
+            // check for holdings before selling
+            // holdings must be greater than or equal to the sell order quantity
+            if (o.getTrader().getHolding().get(o.getScrip()) < o.getQty())
+                return;
             sellOrders.add(o);
             // sorting sell orders in ascending order of ask price
             Comparator<Order> sortSell = new Comparator<>() {
@@ -45,12 +56,12 @@ public class OrderBook {
     public void queryOrders(String userName){
         System.out.println("-: Buy Orders :-");
         for(Order o: buyOrders){
-            if(o.getName().equals(userName))
+            if(o.getTrader().getName().equals(userName))
                 System.out.println(o);
         }
         System.out.println("-: Sell Orders :-");
         for (Order o: sellOrders){
-            if(o.getName().equals(userName))
+            if(o.getTrader().getName().equals(userName))
                 System.out.println(o);
         }
     }

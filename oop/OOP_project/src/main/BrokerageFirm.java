@@ -19,4 +19,12 @@ public class BrokerageFirm {
             t.getHolding().remove(stockName);
         }
     }
+    // get the reference of user by his/her name - assuming that name does not repeat
+    public Trader getUser(String name){
+        for(Trader t: costumer){
+            if(t.getName().equals(name))
+                return t;
+        }
+        return null;
+    }
 }
