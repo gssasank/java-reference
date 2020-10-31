@@ -35,6 +35,7 @@ public class Order {
         return scrip;
     }
 
+    // getters
     public String getType() {
         return type;
     }
@@ -43,6 +44,10 @@ public class Order {
     }
     public double getQty() {
         return qty;
+    }
+    // setters
+    public void setQty(double qty) {
+        this.qty = qty;
     }
 
     @Override

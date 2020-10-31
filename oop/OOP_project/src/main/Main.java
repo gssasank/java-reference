@@ -107,6 +107,10 @@ public class Main{
                             System.out.println("----- ORDER BOOK -----");
                             orders.showOrderBook();
                         }
+                        // Executing orders
+                        else if (command.equals("Execute")){
+                            orders.executeOrders();
+                        }
                         // exiting the program
                         else if (command.equals("Exit")){
                             System.out.println("Thanks for using the system!");

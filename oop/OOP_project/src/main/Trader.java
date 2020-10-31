@@ -35,4 +35,29 @@ public class Trader{
     public Hashtable<String, Double> getHolding() {
         return holding;
     }
+    // setters
+    public void setFunds(double funds) {
+        this.funds = funds;
+    }
+
+    // Method to update holdings
+    public void updateHoldings(String stockName, Double qty){
+        Double prevQty = holding.get(stockName);
+        if (qty > 0 && prevQty == null){
+            // in case of increase in holdings it may be possible that the person is buying stock for the first time
+            prevQty = 0.0;
+        }
+        Double newQty = prevQty + qty;
+        // if there are no holdings
+        if (newQty == 0.0){
+            holding.remove(stockName);
+        }
+        else{
+            holding.put(stockName, newQty);
+        }
+    }
+    // method to update funds
+    public void updateFunds(Double amount){
+        funds += amount;
+    }
 }
