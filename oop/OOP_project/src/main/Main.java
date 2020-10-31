@@ -93,8 +93,14 @@ public class Main{
                             if (s == null)
                                 s = bse.getStock(params[5]);
                             // if user and stock exists then place order
-                            if(t != null && s != null)
-                                orders.addOrder(new Order(params,t,s));
+                            if(t != null && s != null){
+                                try{
+                                    orders.addOrder(new Order(params,t,s));
+                                }
+                                catch(InValidInputException e){
+                                    System.out.print(e.getMessage() + "\n");
+                                }
+                            }
                         }
                         // showing order book
                         else if (command.equals("Show Orderbook")){
