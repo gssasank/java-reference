@@ -74,7 +74,7 @@ public class Main{
                         }
                         // dealing with show sector command
                         else if (command.equals("Show sector")){
-                            System.out.println("----- " + params[1] + " STOCKS -----");
+                            System.out.println("\n----- " + params[1] + " STOCKS -----");
                             // params[1] is the name of the sector
                             nse.querySector(params[1]);
                             bse.querySector(params[1]);
@@ -98,13 +98,15 @@ public class Main{
                                     orders.addOrder(new Order(params,t,s));
                                 }
                                 catch(InValidInputException e){
-                                    System.out.print(e.getMessage() + "\n");
+//                                    System.out.println(e.getMessage());
+                                    ;
                                 }
+
                             }
                         }
                         // showing order book
                         else if (command.equals("Show Orderbook")){
-                            System.out.println("----- ORDER BOOK -----");
+                            System.out.println("\n----- ORDER BOOK -----");
                             orders.showOrderBook();
                         }
                         // Executing orders

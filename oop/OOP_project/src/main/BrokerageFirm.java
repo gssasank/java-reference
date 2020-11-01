@@ -7,6 +7,7 @@ public class BrokerageFirm {
     private ArrayList<Trader> costumer = new ArrayList<>();
     // method to add client to the firm
     public void addClient(Trader user){
+        System.out.println("Added user: " + user.getName() + " with a new instantiation of class Trader");
         costumer.add(user);
     }
     // method to delete client from the firm

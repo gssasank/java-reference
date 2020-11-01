@@ -3,9 +3,9 @@ package main;
 public class InValidInputException extends Exception{
     public InValidInputException(Order o){
         if (o.getRate() < o.getStockData().getLowerCircuit())
-            System.out.print("Order Price: " + o.getRate() + " is below Lower Circuit price: " + o.getStockData().getLowerCircuit());
+            System.out.println("Order rejected for " + o + ", reason: lower circuit violation(" + o.getStockData().getLowerCircuit() +")");
         else if(o.getRate() > o.getStockData().getUpperCircuit())
-            System.out.print("Order Price: " + o.getRate() + " is above Upper Circuit price: " + o.getStockData().getUpperCircuit());
+            System.out.println("Order rejected for " + o + ", reason: upper circuit violation(" + o.getStockData().getUpperCircuit() +")");
     }
 
     @Override

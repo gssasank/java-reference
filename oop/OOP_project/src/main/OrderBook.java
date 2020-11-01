@@ -18,9 +18,10 @@ public class OrderBook {
                 // check funds of the trader before buying
                 // funds must be more than the amount of order
                 if (o.getTrader().getFunds() < o.getRate() * o.getQty()){
-                    System.out.println("Insufficient funds detected. Order amount:" + o.getRate()*o.getQty() + " Funds:" + o.getTrader().getFunds());
+                    System.out.println("Order rejected for " + o + ", reason: Insufficient funds. Order amount:" + o.getRate()*o.getQty() + " Funds:" + o.getTrader().getFunds());
                     return;
                 }
+                System.out.println("Order placed for " + o);
                 buyOrders.add(o);
                 // sort buy orders in descending order of bid price
                 Comparator<Order> sortBuy = new Comparator<>() {
@@ -39,9 +40,11 @@ public class OrderBook {
                 // check for holdings before selling
                 // holdings must be present and greater than or equal to the sell order quantity
                 if (o.getTrader().getHolding().get(o.getScrip()) == null || o.getTrader().getHolding().get(o.getScrip()) < o.getQty()){
-                    System.out.println("Insufficient Holdings detected. Quantity Available:" + o.getTrader().getHolding().get(o.getScrip()) + " Quantity in order:" + o.getQty());
+                    System.out.println("Order rejected for " + o + ", reason: Insufficient Holdings. Quantity Available:" + o.getTrader().getHolding().get(o.getScrip()) + " Quantity in order:" + o.getQty());
+//                    System.out.println("Insufficient Holdings detected. Quantity Available:" + o.getTrader().getHolding().get(o.getScrip()) + " Quantity in order:" + o.getQty());
                     return;
                 }
+                System.out.println("Order placed for " + o);
                 sellOrders.add(o);
                 // sorting sell orders in ascending order of ask price
                 Comparator<Order> sortSell = new Comparator<>() {
@@ -84,7 +87,6 @@ public class OrderBook {
     }
     // Execute orders
     public void executeOrders(){
-        // TODO check funds at the time of execution
         // iterating buyOrders
         // creating an iterator for array list, as we cant update array-list while iterating using forEach loop
         Iterator<Order> it1 = buyOrders.iterator();
@@ -112,6 +114,7 @@ public class OrderBook {
                                     o1.getTrader().updateFunds(-1.0*(o1.getQty() * o1.getRate()));
                                     // add funds to the seller's account
                                     o2.getTrader().updateFunds(o1.getQty() * o1.getRate());
+                                    System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
                                     // remove order from the list
                                     it1.remove();
                                     it2.remove();
@@ -128,10 +131,11 @@ public class OrderBook {
                                     o2.getTrader().updateFunds(o1.getQty() * o1.getRate());
                                     // update sell order
                                     o2.setQty(o2.getQty() - o1.getQty());
+                                    System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
                                     // remove buy order from list as it's completed
                                     it1.remove();
                                 }
-                                // if sell quantity is less than buy quantity TODO test this
+                                // if sell quantity is less than buy quantity
                                 else if (o2.getQty() < o1.getQty()){
                                     // decrease stocks from seller's holdings (-ve)
                                     o2.getTrader().updateHoldings(o2.getScrip(),-1*o2.getQty());
@@ -143,6 +147,7 @@ public class OrderBook {
                                     o2.getTrader().updateFunds(o2.getQty() * o2.getRate());
                                     // update buy order
                                     o1.setQty(o1.getQty() - o2.getQty());
+                                    System.out.println("Executed Transaction: " + o2.getQty() + " qty of scrip:" + o1.getScrip() + " sold for INR " + o2.getQty() * o2.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
                                     // remove sell order from list as it's completed
                                     it2.remove();
                                 }

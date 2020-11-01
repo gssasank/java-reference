@@ -38,6 +38,11 @@ public class StockData {
     public double getLowerCircuit() {
         return lowerCircuit;
     }
+    public String getOHLC(){
+        StringBuilder str = new StringBuilder();
+        str.append(openPrice).append(",").append(highPrice).append(",").append(lowPrice).append(",").append(closePrice);
+        return str.toString();
+    }
 
     @Override
     public String toString(){

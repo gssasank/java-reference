@@ -16,6 +16,7 @@ public class StockExchange{
     public void addStock(String[] params){
         // sample params: {"scrip","M&M","sector","auto","O","610","H","610","L","610","C","610"}
         // params[1] is the name of the stock
+        System.out.println("Added Scrip: " + params[1] + " with a new instantiation of StockData class");
         stocks.put(params[1],new StockData(params));
     }
     // method to query the price of a stock
@@ -33,7 +34,7 @@ public class StockExchange{
             StockData stock = stocks.get(stockName);
             String sector = stock.getSector();
             if (sector.equals(query)){
-                s1.append(stockName).append(", ");
+                s1.append(stockName).append(" - OHLC <").append(stock.getOHLC()).append(">").append(", ");
             }
         }
         System.out.println(query + " Stocks in " + stockExchangeName + ": " + s1.toString());
