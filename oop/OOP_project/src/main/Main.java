@@ -112,6 +112,8 @@ public class Main{
                         // Executing orders
                         else if (command.equals("Execute")){
                             orders.executeOrders();
+                            // check for pending short sell orders
+                            orders.checkShortSell();
                         }
                         // exiting the program
                         else if (command.equals("Exit")){
