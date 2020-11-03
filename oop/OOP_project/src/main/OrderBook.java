@@ -7,6 +7,7 @@ import java.util.Iterator;
 public class OrderBook {
     private ArrayList<Order> buyOrders = new ArrayList<>();
     private ArrayList<Order> sellOrders = new ArrayList<>();
+    private ArrayList<Order> shortSellOrders = new ArrayList<>();
 
     // add order to order book
     public void addOrder(Order o) throws InValidInputException {
@@ -38,11 +39,9 @@ public class OrderBook {
             }
             else{
                 // check for holdings before selling
-                // holdings must be present and greater than or equal to the sell order quantity
+                // if holdings are not present or less than the ordered quantity, then it's the case of short selling
                 if (o.getTrader().getHolding().get(o.getScrip()) == null || o.getTrader().getHolding().get(o.getScrip()) < o.getQty()){
-                    System.out.println("Order rejected for " + o + ", reason: Insufficient Holdings. Quantity Available:" + o.getTrader().getHolding().get(o.getScrip()) + " Quantity in order:" + o.getQty());
-//                    System.out.println("Insufficient Holdings detected. Quantity Available:" + o.getTrader().getHolding().get(o.getScrip()) + " Quantity in order:" + o.getQty());
-                    return;
+                    shortSellOrders.add(o);
                 }
                 System.out.println("Order placed for " + o);
                 sellOrders.add(o);
@@ -87,6 +86,7 @@ public class OrderBook {
     }
     // Execute orders
     public void executeOrders(){
+        // TODO change logic for pricing and update OHLC according to the orders, short selling is also needed to be considered
         // iterating buyOrders
         // creating an iterator for array list, as we cant update array-list while iterating using forEach loop
         Iterator<Order> it1 = buyOrders.iterator();
@@ -98,62 +98,56 @@ public class OrderBook {
                 Order o2 = it2.next();
                 // checking if scrip is equal
                 if (o1.getScrip().equals(o2.getScrip())){
-                    // rate must be equal
-                    if (o1.getRate() == o2.getRate()){
+                    // ask price must be lower or equal to the bid price
+                    if (o2.getRate() >= o1.getRate()){
                         // funds must be sufficient for buy order
                         if (o1.getTrader().getFunds() > o1.getQty()* o1.getRate()){
-                            // holdings must be present for sell order
-                            if(o2.getTrader().getHolding().get(o2.getScrip()) != null && o2.getTrader().getHolding().get(o2.getScrip()) >= o2.getQty()){
-                                // if ask quantity is equal to buy quantity
-                                if (o1.getQty() == o2.getQty()){
-                                    // remove stocks from seller's holdings
-                                    o2.getTrader().updateHoldings(o2.getScrip(),-1*o2.getQty());
-                                    // add stock to buyer's holdings
-                                    o1.getTrader().updateHoldings(o1.getScrip(),o1.getQty());
-                                    // deduct funds from buyer's account
-                                    o1.getTrader().updateFunds(-1.0*(o1.getQty() * o1.getRate()));
-                                    // add funds to the seller's account
-                                    o2.getTrader().updateFunds(o1.getQty() * o1.getRate());
-                                    System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
-                                    // remove order from the list
-                                    it1.remove();
-                                    it2.remove();
-                                }
-                                // if buy quantity is less than sell quantity
-                                else if (o1.getQty() < o2.getQty()){
-                                    // decrease stocks from seller's holdings (-ve)
-                                    o2.getTrader().updateHoldings(o2.getScrip(),-1*o1.getQty());
-                                    // add stock to buyer's holdings
-                                    o1.getTrader().updateHoldings(o1.getScrip(), o1.getQty());
-                                    // deduct funds from buyer's account
-                                    o1.getTrader().updateFunds(-1.0*(o1.getQty() * o1.getRate()));
-                                    // add funds to the seller's account
-                                    o2.getTrader().updateFunds(o1.getQty() * o1.getRate());
-                                    // update sell order
-                                    o2.setQty(o2.getQty() - o1.getQty());
-                                    System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
-                                    // remove buy order from list as it's completed
-                                    it1.remove();
-                                }
-                                // if sell quantity is less than buy quantity
-                                else if (o2.getQty() < o1.getQty()){
-                                    // decrease stocks from seller's holdings (-ve)
-                                    o2.getTrader().updateHoldings(o2.getScrip(),-1*o2.getQty());
-                                    // add stock to buyer's holdings
-                                    o1.getTrader().updateHoldings(o1.getScrip(), o2.getQty());
-                                    // deduct funds from buyer's account
-                                    o1.getTrader().updateFunds(-1.0*(o2.getQty() * o2.getRate()));
-                                    // add funds to the seller's account
-                                    o2.getTrader().updateFunds(o2.getQty() * o2.getRate());
-                                    // update buy order
-                                    o1.setQty(o1.getQty() - o2.getQty());
-                                    System.out.println("Executed Transaction: " + o2.getQty() + " qty of scrip:" + o1.getScrip() + " sold for INR " + o2.getQty() * o2.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
-                                    // remove sell order from list as it's completed
-                                    it2.remove();
-                                }
+                            // if ask quantity is equal to buy quantity
+                            if (o1.getQty() == o2.getQty()){
+                                // remove stocks from seller's holdings
+                                o2.getTrader().updateHoldings(o2.getScrip(),-1*o2.getQty());
+                                // add stock to buyer's holdings
+                                o1.getTrader().updateHoldings(o1.getScrip(),o1.getQty());
+                                // deduct funds from buyer's account
+                                o1.getTrader().updateFunds(-1.0*(o1.getQty() * o1.getRate()));
+                                // add funds to the seller's account
+                                o2.getTrader().updateFunds(o1.getQty() * o1.getRate());
+                                System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
+                                // remove order from the list
+                                it1.remove();
+                                it2.remove();
                             }
-                            else{
-                                System.out.println("Insufficient holdings");
+                            // if buy quantity is less than sell quantity
+                            else if (o1.getQty() < o2.getQty()){
+                                // decrease stocks from seller's holdings (-ve)
+                                o2.getTrader().updateHoldings(o2.getScrip(),-1*o1.getQty());
+                                // add stock to buyer's holdings
+                                o1.getTrader().updateHoldings(o1.getScrip(), o1.getQty());
+                                // deduct funds from buyer's account
+                                o1.getTrader().updateFunds(-1.0*(o1.getQty() * o1.getRate()));
+                                // add funds to the seller's account
+                                o2.getTrader().updateFunds(o1.getQty() * o1.getRate());
+                                // update sell order
+                                o2.setQty(o2.getQty() - o1.getQty());
+                                System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
+                                // remove buy order from list as it's completed
+                                it1.remove();
+                            }
+                            // if sell quantity is less than buy quantity
+                            else if (o2.getQty() < o1.getQty()){
+                                // decrease stocks from seller's holdings (-ve)
+                                o2.getTrader().updateHoldings(o2.getScrip(),-1*o2.getQty());
+                                // add stock to buyer's holdings
+                                o1.getTrader().updateHoldings(o1.getScrip(), o2.getQty());
+                                // deduct funds from buyer's account
+                                o1.getTrader().updateFunds(-1.0*(o2.getQty() * o2.getRate()));
+                                // add funds to the seller's account
+                                o2.getTrader().updateFunds(o2.getQty() * o2.getRate());
+                                // update buy order
+                                o1.setQty(o1.getQty() - o2.getQty());
+                                System.out.println("Executed Transaction: " + o2.getQty() + " qty of scrip:" + o1.getScrip() + " sold for INR " + o2.getQty() * o2.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
+                                // remove sell order from list as it's completed
+                                it2.remove();
                             }
                         }
                         else{
