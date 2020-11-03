@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
+import static java.lang.System.setOut;
 
 public class Main{
     public static void main(String[] args){
@@ -58,6 +59,7 @@ public class Main{
                         else if(command.equals("Delete scrip")){
                             // remove stock from stock exchanges
                             // params[1] is the name of the stock
+                            System.out.println("Deleted Scrip: " + params[1]);
                             nse.stockDeList(params[1]);
                             bse.stockDeList(params[1]);
                             // remove stock from broking firm costumer's profile
@@ -70,6 +72,7 @@ public class Main{
                         // deleting user
                         else if(command.equals("Delete User")){
                             // params[1] is the name of the user
+                            System.out.println("Deleted User: " + params[1]);
                             yadavBroking.deleteClient(params[1]);
                         }
                         // dealing with show sector command
@@ -115,9 +118,20 @@ public class Main{
                             // check for pending short sell orders
                             orders.checkShortSell();
                         }
+                        // showing scrips
+                        else if (command.equals("Show Scrips")){
+                            System.out.println("\nScrips: ");
+                            nse.showScrips();
+                            bse.showScrips();
+                        }
+                        // showing users
+                        else if (command.equals("Show Users")){
+                            System.out.println("\nUsers:");
+                            yadavBroking.showUsers();
+                        }
                         // exiting the program
                         else if (command.equals("Exit")){
-                            System.out.println("Thanks for using the system!");
+                            System.out.println("\nThanks for using the system!");
                             exit(0);
                         }
                     }

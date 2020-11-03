@@ -60,4 +60,14 @@ public class Trader{
     public void updateFunds(Double amount){
         funds += amount;
     }
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        str.append("User: ").append(name).append(", funds: ").append(funds).append(", holding: {");
+        for (String stockName: holding.keySet()){
+            str.append(stockName).append(":").append(holding.get(stockName)).append(", ");
+        }
+        str.append("}");
+        return str.toString();
+    }
 }

@@ -94,7 +94,7 @@ public class OrderBook {
     }
     // Execute orders
     public void executeOrders(){
-        // TODO change logic for pricing and update OHLC according to the orders
+        // TODO update OHLC according to the orders
         // iterating buyOrders
         // creating an iterator for array list, as we cant update array-list while iterating using forEach loop
         Iterator<Order> it1 = buyOrders.iterator();

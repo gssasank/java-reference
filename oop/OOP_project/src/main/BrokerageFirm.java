@@ -28,4 +28,10 @@ public class BrokerageFirm {
         }
         return null;
     }
+    // list users
+    public void showUsers(){
+        for (Trader t: costumer){
+            System.out.println(t);
+        }
+    }
 }
