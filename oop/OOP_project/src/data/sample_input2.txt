@@ -11,9 +11,9 @@ Add scrip: Cipla, sector: Pharma, O:790, H:790, L:790, C:790
 
 Add scrip: Sunpharma, sector: Pharma, O:490, H:490, L:490, C:490
 
-Add user: Jaydeep, funds:15000 holding: None
+Add user: Jaydeep, funds:25000 holding: None
 
-Add user: Mimi, funds:1000 holding: {INFY:10, TCS:5, SBI:20, M&M:20}
+Add user: Mimi, funds:1000 holding: {INFY:10, TCS:5, SBI:20}
 
 Add user: Kapil, funds:25000 holding: {SBI:100, M&M:20}
 
@@ -30,16 +30,6 @@ Place order, user: Kapil, type: buy, scrip: M&M, qty:10, rate: 580
 Place order, user: Nusrat, type: sell, scrip: SBI, qty:25, rate: 195
 
 Place order, user: Mimi, type: buy, scrip: TCS, qty:5, rate: 2190
-
-Place order, user: Mimi, type: sell, scrip: M&M, qty:10, rate: 580
-
-Place order, user: Jaydeep, type: buy, scrip: SBI, qty:20, rate: 195
-
-Place order, user: Jaydeep, type: sell, scrip: INFY, qty:10, rate: 900
-
-Place order, user: Kapil, type: buy, scrip: INFY, qty:20, rate: 900
-
-Place order, user:Nusrat, type: sell, scrip: INFY, qty:10, rate: 900
 
 Show Orderbook
 
