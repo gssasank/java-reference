@@ -7,7 +7,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
-import static java.lang.System.setOut;
 
 public class Main{
     public static void main(String[] args){
@@ -102,9 +101,13 @@ public class Main{
                                 }
                                 catch(InValidInputException e){
 //                                    System.out.println(e.getMessage());
-                                    ;
                                 }
-
+                            }
+                            if (t == null){
+                                System.out.println("User: " + params[1] + " does not exist.");
+                            }
+                            if (s == null){
+                                System.out.println("Scrip: " + params[5] + " does not exist.");
                             }
                         }
                         // showing order book

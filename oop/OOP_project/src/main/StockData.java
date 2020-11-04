@@ -2,10 +2,13 @@ package main;
 
 public class StockData {
     private final String sector;
-    private final double openPrice;
-    private final double highPrice;
-    private final double lowPrice;
-    private final double closePrice;
+    private double openPrice;
+    private double highPrice;
+    private double lowPrice;
+    private double closePrice;
+    private double firstTransaction;
+    private double lowestTransaction;
+    private double highestTransaction;
     private final double upperCircuit;
     private final double lowerCircuit;
 
@@ -26,6 +29,11 @@ public class StockData {
         // calculating upper circuit
         this.upperCircuit = this.closePrice + (this.closePrice/10.0);
         this.lowerCircuit = this.closePrice - (this.closePrice/10.0);
+        // setting firstTransaction price to some arbitrary value to easily track the changes
+        this.firstTransaction = Double.MIN_VALUE;
+        // similarly for lowest and highest prices
+        this.highestTransaction = Double.MIN_VALUE;
+        this.lowestTransaction = Double.MAX_VALUE;
     }
 
     // Getters
@@ -39,9 +47,28 @@ public class StockData {
         return lowerCircuit;
     }
     public String getOHLC(){
-        StringBuilder str = new StringBuilder();
-        str.append(openPrice).append(",").append(highPrice).append(",").append(lowPrice).append(",").append(closePrice);
-        return str.toString();
+        return openPrice + "," + highPrice + "," + lowPrice + "," + closePrice;
+    }
+
+    // update OHLC
+    public void updateOHLC(double rate){
+        // update O
+        if ( firstTransaction == Double.MIN_VALUE){
+            // update first transaction (to prevent future changes)
+            firstTransaction = rate;
+            // update open price
+            openPrice = firstTransaction;
+        }
+        // update H
+        if( rate > highestTransaction ){
+            highestTransaction = rate;
+            highPrice = highestTransaction;
+        }
+        // update L
+        if ( rate < lowestTransaction) {
+            lowestTransaction = rate;
+            lowPrice = lowestTransaction;
+        }
     }
 
     @Override

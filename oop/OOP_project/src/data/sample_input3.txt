@@ -19,23 +19,21 @@ Add user: Kapil, funds:25000 holding: {SBI:100, M&M:20}
 
 Add user: Nusrat, funds:2000 holding: {INFY:20, M&M:25, SBI:25}
 
-Place order, user: Jaydeep, type: buy, scrip: INFY, qty:10, rate: 790
+Place order, user: Jaydeep, type: buy, scrip: INFY, qty:10, rate: 802
 
 Place order, user: Jaydeep, type: buy, scrip: SBI, qty:100, rate: 210
 
-Place order, user: Mimi, type: sell, scrip: INFY, qty:10, rate: 900
+Place order, user: Mimi, type: sell, scrip: INFY, qty:10, rate: 801
 
 Place order, user: Kapil, type: buy, scrip: M&M, qty:10, rate: 580
 
-Place order, user: Nusrat, type: sell, scrip: SBI, qty:25, rate: 195
-
-Place order, user: Aman, type: sell, scrip: JBL, qty:30, rate: 200 // case when user and stock does not exist
+Place order, user: Nusrat, type: sell, scrip: SBI, qty:25, rate: 205
 
 Place order, user: Mimi, type: buy, scrip: TCS, qty:5, rate: 2190
 
 Place order, user: Mimi, type: sell, scrip: M&M, qty:10, rate: 580
 
-Place order, user: Jaydeep, type: buy, scrip: SBI, qty:20, rate: 195
+Place order, user: Jaydeep, type: buy, scrip: SBI, qty:20, rate: 210
 
 Place order, user: Jaydeep, type: sell, scrip: INFY, qty:10, rate: 900
 
@@ -51,11 +49,11 @@ Execute
 
 Show Orderbook
 
+Show sector: Pharma
+
 Show Scrips
 
 Show Users
-
-Show sector: Pharma
 
 Show sector: IT
 

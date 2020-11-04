@@ -94,7 +94,6 @@ public class OrderBook {
     }
     // Execute orders
     public void executeOrders(){
-        // TODO update OHLC according to the orders
         // iterating buyOrders
         // creating an iterator for array list, as we cant update array-list while iterating using forEach loop
         Iterator<Order> it1 = buyOrders.iterator();
@@ -123,6 +122,8 @@ public class OrderBook {
                                 // add funds to the seller's account
                                 o2.getTrader().updateFunds(o1.getQty() * o1.getRate());
                                 System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " @ " + o1.getRate() + " per share" + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
+                                // update OHLC
+                                o1.getStockData().updateOHLC(o1.getRate());
                                 // remove order from the list
                                 it1.remove();
                                 it2.remove();
@@ -140,6 +141,8 @@ public class OrderBook {
                                 // update sell order
                                 o2.setQty(o2.getQty() - o1.getQty());
                                 System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " @ " + o1.getRate() + " per share" + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
+                                // update OHLC
+                                o1.getStockData().updateOHLC(o1.getRate());
                                 // remove buy order from list as it's completed
                                 it1.remove();
                             }
@@ -156,6 +159,8 @@ public class OrderBook {
                                 // update buy order
                                 o1.setQty(o1.getQty() - o2.getQty());
                                 System.out.println("Executed Transaction: " + o2.getQty() + " qty of scrip:" + o1.getScrip() + " @ " + o2.getRate() + " per share" + " sold for INR " + o2.getQty() * o2.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
+                                // update OHLC
+                                o2.getStockData().updateOHLC(o2.getRate());
                                 // remove sell order from list as it's completed
                                 it2.remove();
                             }
