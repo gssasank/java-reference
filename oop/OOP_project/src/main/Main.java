@@ -11,7 +11,9 @@ import static java.lang.System.exit;
 public class Main{
     public static void main(String[] args){
         // Open input file
+        JOptionPane.showMessageDialog(null,"Please choose Input text file in next dialog box");
         JFileChooser inputFile = new JFileChooser("./src/data");
+        inputFile.setDialogTitle("Select TXT input file");
 
         if (inputFile.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
             File file = inputFile.getSelectedFile();
@@ -134,7 +136,9 @@ public class Main{
                         }
                         // exiting the program
                         else if (command.equals("Exit")){
+                            JOptionPane.showMessageDialog(null,"Results displayed on console.\nChoose csv file in next Dialog Box");
                             System.out.println("\nThanks for using the system!");
+                            SecondPart.csv();
                             exit(0);
                         }
                     }
