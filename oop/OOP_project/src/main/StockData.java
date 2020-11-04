@@ -9,6 +9,7 @@ public class StockData {
     private double firstTransaction;
     private double lowestTransaction;
     private double highestTransaction;
+    private double lastTransaction;
     private final double upperCircuit;
     private final double lowerCircuit;
 
@@ -29,11 +30,13 @@ public class StockData {
         // calculating upper circuit
         this.upperCircuit = this.closePrice + (this.closePrice/10.0);
         this.lowerCircuit = this.closePrice - (this.closePrice/10.0);
-        // setting firstTransaction price to some arbitrary value to easily track the changes
-        this.firstTransaction = Double.MIN_VALUE;
+        // setting last transaction to zero
+        this.lastTransaction = 0.0;
+        // setting firstTransaction price to negative infinity to easily track the changes
+        this.firstTransaction = Double.NEGATIVE_INFINITY;
         // similarly for lowest and highest prices
-        this.highestTransaction = Double.MIN_VALUE;
-        this.lowestTransaction = Double.MAX_VALUE;
+        this.highestTransaction = Double.NEGATIVE_INFINITY;
+        this.lowestTransaction = Double.POSITIVE_INFINITY;
     }
 
     // Getters
@@ -69,6 +72,8 @@ public class StockData {
             lowestTransaction = rate;
             lowPrice = lowestTransaction;
         }
+        // update last transaction
+        lastTransaction = rate;
     }
 
     @Override
