@@ -137,8 +137,8 @@ public class Main{
                         // exiting the program
                         else if (command.equals("Exit")){
                             JOptionPane.showMessageDialog(null,"Results displayed on console.\nChoose csv file in next Dialog Box");
-                            System.out.println("\nThanks for using the system!");
                             SecondPart.csv();
+                            System.out.println("\nThanks for using the system!");
                             exit(0);
                         }
                     }

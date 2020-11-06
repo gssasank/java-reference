@@ -43,8 +43,6 @@ Place order, user: Kapil, type: buy, scrip: INFY, qty:20, rate: 900
 
 Place order, user:Nusrat, type: sell, scrip: INFY, qty:10, rate: 900
 
-Place order, user:Jaydeep, type: buy, scrip: INFY, qty:10 4, rate: 900    // to recover short selling, delete this to see short selling in the output
-
 Show Orderbook
 
 Execute
