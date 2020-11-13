@@ -118,10 +118,10 @@ public class OrderBook {
                                 // add stock to buyer's holdings
                                 o1.getTrader().updateHoldings(o1.getScrip(),o1.getQty());
                                 // deduct funds from buyer's account
-                                o1.getTrader().updateFunds(-1.0*(o1.getQty() * o1.getRate()));
+                                o1.getTrader().updateFunds(-1.0*(o1.getQty() * o2.getRate()));
                                 // add funds to the seller's account
-                                o2.getTrader().updateFunds(o1.getQty() * o1.getRate());
-                                System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " @ " + o1.getRate() + " per share" + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
+                                o2.getTrader().updateFunds(o1.getQty() * o2.getRate());
+                                System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " @ " + o2.getRate() + " per share" + " sold for INR " + o1.getQty() * o2.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
                                 // update OHLC
                                 o1.getStockData().updateOHLC(o1.getRate());
                                 // remove order from the list
@@ -135,12 +135,12 @@ public class OrderBook {
                                 // add stock to buyer's holdings
                                 o1.getTrader().updateHoldings(o1.getScrip(), o1.getQty());
                                 // deduct funds from buyer's account
-                                o1.getTrader().updateFunds(-1.0*(o1.getQty() * o1.getRate()));
+                                o1.getTrader().updateFunds(-1.0*(o1.getQty() * o2.getRate()));
                                 // add funds to the seller's account
-                                o2.getTrader().updateFunds(o1.getQty() * o1.getRate());
+                                o2.getTrader().updateFunds(o1.getQty() * o2.getRate());
                                 // update sell order
                                 o2.setQty(o2.getQty() - o1.getQty());
-                                System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " @ " + o1.getRate() + " per share" + " sold for INR " + o1.getQty() * o1.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
+                                System.out.println("Executed Transaction: " + o1.getQty() + " qty of scrip:" + o1.getScrip() + " @ " + o2.getRate() + " per share" + " sold for INR " + o1.getQty() * o2.getRate() +"; Buyer: " + o1.getTrader().getName() + ", Seller: " + o2.getTrader().getName());
                                 // update OHLC
                                 o1.getStockData().updateOHLC(o1.getRate());
                                 // remove buy order from list as it's completed
